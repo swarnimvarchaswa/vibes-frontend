@@ -12,7 +12,7 @@ function Login() {
 
     setIsLoading(true)
 
-    fetch("http://localhost:5000/login", {
+    fetch("https://vibes-api.onrender.com/login", {
       method: "post",
       headers: {
         "Content-Type": "application/json",

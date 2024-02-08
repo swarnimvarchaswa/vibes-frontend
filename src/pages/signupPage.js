@@ -78,7 +78,7 @@ function SignupPage() {
 
     setIsLoading(true);
 
-    fetch("http://localhost:5000/signup", {
+    fetch("https://vibes-api.onrender.com/signup", {
       method: "post",
       headers: {
         "Content-Type": "application/json",

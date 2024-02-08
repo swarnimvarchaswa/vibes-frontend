@@ -7,7 +7,7 @@ function WelcomePage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/username", {
+    fetch("https://vibes-api.onrender.com/username", {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("jwt"),
       },

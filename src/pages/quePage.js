@@ -16,7 +16,7 @@ function QuePage() {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/isanswers", {
+    fetch("https://vibes-api.onrender.com/isanswers", {
       method: "get",
       headers: {
         'Content-Type': 'application/json',
@@ -125,7 +125,7 @@ function QuePage() {
   ];
 
   const saveAnswers = () => {
-    fetch("http://localhost:5000/answers", {
+    fetch("https://vibes-api.onrender.com/answers", {
       method: "post",
       headers: {
         "Content-Type": "application/json",

@@ -22,7 +22,7 @@ function ProfilePage() {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/profile", {
+    fetch("https://vibes-api.onrender.com/profile", {
       method: "get",
       headers: {
         "Content-Type": "application/json",
