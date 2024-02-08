@@ -8,7 +8,7 @@ function SettingIcon() {
       viewBox="0 0 24 24"
       strokeWidth="2.3"
       stroke="currentColor"
-      class="w-9 h-9"
+      className="w-9 h-9"
     >
       <path
         strokeLinecap="round"

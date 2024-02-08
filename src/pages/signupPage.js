@@ -52,7 +52,7 @@ function SignupPage() {
           // Email is already registered, navigate to login page
           // console.log("jwt", data);
           localStorage.setItem("jwt", data);
-          navigate("/");
+          navigate("/home");
         } else {
           // Email is new, continue with the signup process
           // console.log("new email");

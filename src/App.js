@@ -3,9 +3,10 @@ import "./App.css";
 import Background from "./components/bg";
 import NumberPlate from "./components/numberPlate";
 
+import MainPage from "./pages/MainPage"
 import LoginPage from "./pages/loginPage";
 import SignupPage from "./pages/signupPage";
-import MainPage from "./pages/homePage";
+import HomePage from "./pages/homePage";
 import MessagePage from "./pages/messagePage";
 import MatchPage from "./pages/matchPage";
 import NotificationPage from "./pages/notificationPage";
@@ -37,6 +38,14 @@ function App() {
       element: (
         <div>
           <MainPage />
+        </div>
+      )
+    },
+    {
+      path: "/home",
+      element: (
+        <div>
+          <HomePage />
         </div>
       ),
     },
@@ -119,11 +128,43 @@ function App() {
           <QuePage />
         </div>
       )
+    },
+    {
+      path: "/editprofile",
+      element: (
+        <div>
+          To be updated soon
+        </div>
+      )
+    },
+    {
+      path: "/verification",
+      element: (
+        <div>
+          To be updatd soon
+        </div>
+      )
+    },
+    {
+      path: "/contact",
+      element: (
+        <div>
+          To be updated soon
+        </div>
+      )
+    },
+    {
+      path: "/faq",
+      element: (
+        <div>
+          To be updated soon
+        </div>
+      )
     }
   ]);
 
   return (
-    <div className="App bg-purple-50 h-dvh w-dvw absolute top-0">
+    <div className="App bg-purple-50">
       <RouterProvider router={router} />
     </div>
   );

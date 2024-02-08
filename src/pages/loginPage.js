@@ -29,7 +29,7 @@ function Login() {
           // console.log("jwt", data)
           localStorage.setItem("jwt", data);
           setIsLoading(false)
-          navigate("/");
+          navigate("/home");
         }
       })
       .catch((error) => {

@@ -5,24 +5,31 @@ import Que1 from "../components/que1";
 function QuePage() {
   const navigate = useNavigate();
 
-
   const [selectedOptions, setSelectedOptions] = useState({});
   const [currentQuestion, setCurrentQuestion] = useState(1);
 
-  // useEffect(() => {
-  //   fetch("http://localhost:5000/isanswers", {
-  //     headers: {
-  //       Authorization: "Bearer " + localStorage.getItem("jwt"),
-  //     },
-  //   })
-  //   .then((res) => res.text())
-  //   .then((hasAnswers) => {
-  //     // console.log(hasAnswers)
-  //     if(hasAnswers === "true") {
-  //       navigate("/")
-  //     }
-  //   })
-  // })
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+    if (!token) {
+      navigate("./login");
+    }
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/isanswers", {
+      method: "get",
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: "Bearer " + localStorage.getItem("jwt"),
+      },
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      if(data === true) {
+        navigate("/home");
+      }
+    })
+  })
 
   const questionData = [
     {
@@ -136,7 +143,7 @@ function QuePage() {
       .then((response) => response.json())
       .then((data) => {
         // console.log(data);
-        navigate("/")
+        navigate("/uploadphoto")
       })
       .catch((error) => {
         console.error("Error saving answers:", error);

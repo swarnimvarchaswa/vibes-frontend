@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/navbar";
 import BottomNavbar from "../components/BottomNavbar";
 
 import { googleLogout } from "@react-oauth/google";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import KeyIcon from "../Icons/KeyIcon";
 import EditIcon from "../Icons/SettingEditIcon";
 import VerificationIcon from "../Icons/VerificationIcon";
@@ -14,11 +14,22 @@ import LogoutIcon from "../Icons/LogoutIcon";
 // import { LoginContext } from "../context/loginContext";
 
 function Setting() {
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+    if (!token) {
+      navigate("./login");
+    }
+  }, []);
+
   const handleLogout = () => {
     // Call your logout function here
     googleLogout();
     localStorage.clear();
     // Additional logout logic if needed
+    navigate("/login")
   };
 
   //   const {setModalOpen} = useContext(LoginContext)
@@ -57,7 +68,7 @@ function Setting() {
             </Link>{" "}
             <hr className="w-screen max-w-md " />
             <Link
-              to="/Contact"
+              to="/contact"
               className="flex flex-row gap-4 px-8 py-4  font-r tracking-wide text-gray-700 hover:text-purple-500"
             >
               <MessageIcon />

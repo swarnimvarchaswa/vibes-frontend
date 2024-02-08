@@ -13,13 +13,13 @@ function BottomNavbar() {
 
   return (
     <div>
-      <nav className="fixed bottom-0 left-0 w-full bg-white py-4 border-t-[1px]">
+      <nav className="fixed bottom-0 left-0  w-full bg-white py-4 border-t-[1px]">
         <div className="flex justify-around">
           <Link
-            to="/"
+            to="/home"
             exact="true"
             className={`flex flex-col item-center text-gray-700 ${
-              location.pathname === "/" ? "text-purple-500" : "fill-none" //fill-purple-400
+              location.pathname === "/home" ? "text-purple-500" : "fill-none" //fill-purple-400
             }`}
           >
             <HomeIcon />
