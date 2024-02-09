@@ -51,6 +51,9 @@ function Que1({ number, text, options, onNextQuestion }) {
             </button>
           ))}
         </div>
+        <br />
+        <br />
+        <br />
       </div>
     </div>
   );
