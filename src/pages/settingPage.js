@@ -29,7 +29,7 @@ function Setting() {
     googleLogout();
     localStorage.clear();
     // Additional logout logic if needed
-    navigate("/login")
+    navigate("/")
   };
 
   //   const {setModalOpen} = useContext(LoginContext)

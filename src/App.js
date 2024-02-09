@@ -16,6 +16,7 @@ import UploadPhoto from "./pages/uploadPhoto";
 import WelcomePage from "./pages/welcomePage";
 import QuePage from "./pages/quePage";
 import FaqPage from "./pages/faqPage";
+import VerifyPage from "./pages/verifyPage";
 
 import {
   createBrowserRouter,
@@ -136,7 +137,11 @@ function App() {
     },
     {
       path: "/verification",
-      element: <div>To be updatd soon</div>,
+      element: (
+        <div>
+          <VerifyPage />
+        </div>
+      ),
     },
     {
       path: "/contact",
