@@ -17,6 +17,7 @@ import WelcomePage from "./pages/welcomePage";
 import QuePage from "./pages/quePage";
 import FaqPage from "./pages/faqPage";
 import VerifyPage from "./pages/verifyPage";
+import ContactPage from "./pages/contactPage";
 
 import {
   createBrowserRouter,
@@ -145,7 +146,11 @@ function App() {
     },
     {
       path: "/contact",
-      element: <div>To be updated soon</div>,
+      element: (
+        <div>
+          <ContactPage />
+        </div>
+      ),
     },
     {
       path: "/faq",
