@@ -61,7 +61,7 @@ function Setting() {
             <hr className="w-screen max-w-md " />
             <Link
               to="/Verification"
-              className="flex flex-row gap-4 px-8 py-4  font-r tracking-wide text-gray-700 hover:text-purple-500"
+              className="flex flex-row gap-4 px-8 py-4  font-r tracking-wide hover:text-purple-500"
             >
               <VerificationIcon />
               <p>Verify for free</p>
@@ -69,7 +69,7 @@ function Setting() {
             <hr className="w-screen max-w-md " />
             <Link
               to="/contact"
-              className="flex flex-row gap-4 px-8 py-4  font-r tracking-wide text-gray-700 hover:text-purple-500"
+              className="flex flex-row gap-4 px-8 py-4  font-r tracking-wide hover:text-purple-500"
             >
               <MessageIcon />
               <p>Contact Us</p>
@@ -77,7 +77,7 @@ function Setting() {
             <hr className="w-screen max-w-md " />
             <Link
               to="/faq"
-              className="flex flex-row gap-4 px-8 py-4  font-r tracking-wide text-gray-700 hover:text-purple-500"
+              className="flex flex-row gap-4 px-8 py-4  font-r tracking-wide hover:text-purple-500"
             >
               <QuestionIcon />
               <p>FAQ</p>
