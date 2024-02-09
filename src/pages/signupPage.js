@@ -36,7 +36,7 @@ function SignupPage() {
       try {
         setStartLoading(true);
 
-        const response = await fetch("http://localhost:5000/login", {
+        const response = await fetch("https://vibes-api.onrender.com/login", {
           method: "post",
           headers: {
             "Content-Type": "application/json",

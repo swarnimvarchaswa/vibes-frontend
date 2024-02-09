@@ -18,6 +18,7 @@ import QuePage from "./pages/quePage";
 import FaqPage from "./pages/faqPage";
 import VerifyPage from "./pages/verifyPage";
 import ContactPage from "./pages/contactPage";
+import EditPage from "./pages/editPage";
 
 import {
   createBrowserRouter,
@@ -134,7 +135,11 @@ function App() {
     },
     {
       path: "/editprofile",
-      element: <div>To be updated soon</div>,
+      element: (
+        <div>
+          <EditPage />
+        </div>
+      ),
     },
     {
       path: "/verification",

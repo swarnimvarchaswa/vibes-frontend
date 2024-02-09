@@ -14,6 +14,22 @@ function MainPage() {
     }
   }, []);
 
+  useEffect(() => {
+    fetch("https://vibes-api.onrender.com/isanswers", {
+      method: "get",
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: "Bearer " + localStorage.getItem("jwt"),
+      },
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      if(data === false) {
+        navigate("/que");
+      }
+    })
+  })
+
   return (
     <div>
       {/* <div className=" absolute top-0 bottom-0 w-dvw bg-gradient-to-b from-50% from-purple-500  to-purple-200 opacity-30"></div> */}
