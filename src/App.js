@@ -3,7 +3,7 @@ import "./App.css";
 import Background from "./components/bg";
 import NumberPlate from "./components/numberPlate";
 
-import MainPage from "./pages/MainPage"
+import MainPage from "./pages/MainPage";
 import LoginPage from "./pages/loginPage";
 import SignupPage from "./pages/signupPage";
 import HomePage from "./pages/homePage";
@@ -11,7 +11,7 @@ import MessagePage from "./pages/messagePage";
 import MatchPage from "./pages/matchPage";
 import NotificationPage from "./pages/notificationPage";
 import ProfilePage from "./pages/profilePage";
-import SettingPage from "./pages/settingPage"
+import SettingPage from "./pages/settingPage";
 import UploadPhoto from "./pages/uploadPhoto";
 import WelcomePage from "./pages/welcomePage";
 import QuePage from "./pages/quePage";
@@ -31,7 +31,7 @@ function App() {
         <div>
           <NumberPlate />
         </div>
-      )
+      ),
     },
     {
       path: "/",
@@ -39,7 +39,7 @@ function App() {
         <div>
           <MainPage />
         </div>
-      )
+      ),
     },
     {
       path: "/home",
@@ -87,7 +87,7 @@ function App() {
         <div>
           <SettingPage />
         </div>
-      )
+      ),
     },
     {
       path: "/login",
@@ -127,48 +127,36 @@ function App() {
         <div>
           <QuePage />
         </div>
-      )
+      ),
     },
     {
       path: "/editprofile",
-      element: (
-        <div>
-          To be updated soon
-        </div>
-      )
+      element: <div>To be updated soon</div>,
     },
     {
       path: "/verification",
-      element: (
-        <div>
-          To be updatd soon
-        </div>
-      )
+      element: <div>To be updatd soon</div>,
     },
     {
       path: "/contact",
-      element: (
-        <div>
-          To be updated soon
-        </div>
-      )
+      element: <div>To be updated soon</div>,
     },
     {
       path: "/faq",
-      element: (
-        <div>
-          To be updated soon
-        </div>
-      )
-    }
+      element: <div>To be updated soon</div>,
+    },
   ]);
 
   return (
     <div className="App bg-purple-50">
-      <RouterProvider router={router} />
+      <div className="hidden sm:block ">
+        <h1>This App is only for mobile screeen</h1>
+      </div>
+      <div className="visible sm:invisible">
+        <RouterProvider router={router} />
+      </div>
     </div>
   );
 }
 
 export default App;
- 

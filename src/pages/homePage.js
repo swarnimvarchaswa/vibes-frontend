@@ -7,12 +7,12 @@ import CountdownTimer from "../components/counter";
 function MainPage() {
   const navigate = useNavigate()
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem("jwt");
-  //   if (!token) {
-  //     navigate("./login");
-  //   }
-  // }, []);
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+    if (!token) {
+      navigate("./login");
+    }
+  }, []);
 
   return (
     <div>
