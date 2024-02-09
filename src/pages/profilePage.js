@@ -75,7 +75,7 @@ function ProfilePage() {
         <h1 className="text-2xl mt-6 text-center text-purple-600">
           {name}{" "}
           {verify && (
-            <span className="relative inline-flex items-center ml-3 top-1">
+            <span className="relative inline-flex items-center ml-1 top-1">
               <Verification />
             </span>
           )}
