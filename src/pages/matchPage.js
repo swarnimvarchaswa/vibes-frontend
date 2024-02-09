@@ -14,6 +14,22 @@ function MatchPage() {
       navigate("./login");
     }
   }, []);
+
+  useEffect(() => {
+    fetch("https://vibes-api.onrender.com/isanswers", {
+      method: "get",
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: "Bearer " + localStorage.getItem("jwt"),
+      },
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      if(data === false) {
+        navigate("/que");
+      }
+    })
+  })
   
   return (
     <div>
