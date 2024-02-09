@@ -12,7 +12,7 @@ function EditPage() {
 
   useEffect(() => {
     const token = localStorage.getItem("jwt");
-    if (token) {
+    if (!token) {
       navigate("./home");
     }
   }, []);
