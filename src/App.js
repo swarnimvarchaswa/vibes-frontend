@@ -15,6 +15,7 @@ import SettingPage from "./pages/settingPage";
 import UploadPhoto from "./pages/uploadPhoto";
 import WelcomePage from "./pages/welcomePage";
 import QuePage from "./pages/quePage";
+import FaqPage from "./pages/faqPage";
 
 import {
   createBrowserRouter,
@@ -143,7 +144,11 @@ function App() {
     },
     {
       path: "/faq",
-      element: <div>To be updated soon</div>,
+      element: (
+        <div>
+          <FaqPage />
+        </div>
+      ),
     },
   ]);
 
