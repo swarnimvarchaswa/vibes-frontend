@@ -154,13 +154,13 @@ function SignupPage() {
             </div>
 
             <div className="mt-10 font-r tracking-wide">
-        <p className="text-center text-gray-600">
-          Back to{" "}
-          <Link to="/login" className="text-purple-600 hover:underline">
-            Log in
-          </Link>
-        </p>
-      </div>
+              <p className="text-center text-gray-600">
+                Back to{" "}
+                <Link to="/login" className="text-purple-600 hover:underline">
+                  Log in
+                </Link>
+              </p>
+            </div>
           </div>
         )}
 
@@ -330,15 +330,15 @@ function SignupPage() {
                       <div>Sign Up</div>
                     )}
                   </button>
+                  <br />
+                  <br />
+                  <br />
                 </div>
               </div>
             )}
           </div>
         )}
       </div>
-      <br />
-      <br />
-      <br />
     </div>
   );
 }
