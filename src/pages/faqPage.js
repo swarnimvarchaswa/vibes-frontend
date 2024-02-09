@@ -50,6 +50,9 @@ function FaqPage() {
               )}
             </div>
           ))}
+          <br />
+          <br />
+          <br />
         </div>
       );
     };
