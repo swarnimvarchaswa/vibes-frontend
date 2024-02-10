@@ -101,7 +101,7 @@ function ProfilePage() {
         <p className="text-lg mt-3 text-center font-r text-gray-600">
           {branch}{year}
         </p>
-        <p className="text-lg mt-6 text-center font-r text-gray-500">
+        <p className="text-lg mt-6 text-justify font-r text-gray-500">
          {about}
         </p>
       </div>
