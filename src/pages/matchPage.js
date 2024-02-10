@@ -99,6 +99,9 @@ function MatchPage() {
           if (!res.ok) {
             throw new Error("Update name failed");
           }
+          Request();
+          Match();
+          Limit();
           return res.json();
         })
         .catch((err) => {
@@ -124,6 +127,33 @@ function MatchPage() {
       });
   };
 
+  const Request = () => {
+    try {
+      fetch("https://vibes-api.onrender.com/request", {
+        method: "put",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + localStorage.getItem("jwt"),
+        },
+
+        body: JSON.stringify({
+          id: id,
+        }),
+      })
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Update name failed");
+          }
+          return res.json();
+        })
+        .catch((err) => {
+          console.error("Error updating name:", err);
+        });
+    } catch (error) {
+      console.error("Error updating name:", error);
+    }
+  };
+
   useEffect(() => {
     Match();
     Limit();
@@ -136,8 +166,6 @@ function MatchPage() {
   const connectButtonClick = () => {
     if (dailyConnectionRequests < 2) {
       Connect();
-      Match();
-      Limit();
     }
   };
 
