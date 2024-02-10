@@ -17,6 +17,8 @@ function MatchPage() {
   const [about, setAbout] = useState("");
   const [dailyConnectionRequests, setDailyConnectionRequests] = useState("");
 
+  const [top5, setTop5] = useState(true);
+
   useEffect(() => {
     const token = localStorage.getItem("jwt");
     if (!token) {
@@ -50,12 +52,14 @@ function MatchPage() {
     })
       .then((response) => response.json())
       .then((data) => {
-        // console.log(data.userDetails._id);
+        // console.log(data);
 
         setId(data.userDetails._id);
         setName(data.userDetails.name);
         setPhoto(data.userDetails.photo);
         setBranch(data.userDetails.branch);
+
+        setTop5(data.isInTop5Percent);
 
         switch (data.userDetails.year) {
           case "1":
@@ -115,7 +119,7 @@ function MatchPage() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.dailyConnectionRequests);
+        // console.log(data.dailyConnectionRequests);
         setDailyConnectionRequests(data.dailyConnectionRequests);
       });
   };
@@ -161,7 +165,13 @@ function MatchPage() {
             {branch}
             {year}
           </p>
-          <p className="text-lg mt-3 text-justify font-r text-gray-500 line-clamp-4">
+          {top5 && (
+            <p className=" w-full text-center text-lg text-green-500 ">
+              Recommended
+            </p>
+          )}
+
+          <p className="text-lg mt-3 text-justify font-r text-gray-500 line-clamp-3">
             {about}
             {/* Enthusiastic coder driven by creativity and a love for problem-solving. A perpetual learner dedicated to transforming ideas into elegant code. Passionate about innovation and constantly exploring the vast realms of programming possibilities. */}
           </p>
@@ -181,7 +191,7 @@ function MatchPage() {
           Connect
         </button>
       </div>
-      <div className="absolute left-0 bottom-14 w-full text-sm ">
+      <div className="absolute left-0 bottom-16 w-full text-sm ">
         <h1
           className={`text-lg font-r text-center ${
             dailyConnectionRequests === 2 ? "text-red-600" : "text-purple-600"
