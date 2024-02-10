@@ -41,7 +41,7 @@ function MatchPage() {
   });
 
   const Match = () => {
-    fetch("http://localhost:5000/match", {
+    fetch("https://vibes-api.onrender.com/match", {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -81,7 +81,7 @@ function MatchPage() {
 
   const Connect = () => {
     try {
-      fetch("http://localhost:5000/connectRequest", {
+      fetch("https://vibes-api.onrender.com/connectRequest", {
         method: "put",
         headers: {
           "Content-Type": "application/json",
@@ -106,7 +106,7 @@ function MatchPage() {
   };
 
   const Limit = () => {
-    fetch("http://localhost:5000/connectionlimit", {
+    fetch("https://vibes-api.onrender.com/connectionlimit", {
       method: "get",
       headers: {
         "Content-Type": "application/json",
