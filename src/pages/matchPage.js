@@ -17,7 +17,7 @@ function MatchPage() {
   const [about, setAbout] = useState("");
   const [dailyConnectionRequests, setDailyConnectionRequests] = useState("");
 
-  const [top5, setTop5] = useState(true);
+  const [top5, setTop5] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem("jwt");
