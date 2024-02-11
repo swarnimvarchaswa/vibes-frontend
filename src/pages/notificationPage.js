@@ -138,48 +138,54 @@ function NotificationPage() {
       <div>
         <Navbar />
         <div className="mx-auto mt-12 absolute top-8 left-0 w-dvw">
-          {Array.isArray(users) && users.map((user) => (
-            <div
-              key={user._id}
-              className="my-4 mx-3 p-2 bg-purple-100 flex flex-cols gap-4 rounded-xl content-stretch"
-            >
-              <div>
-                <img
-                  className="w-24 mt-1 aspect-square object-cover rounded-[50%]"
-                  src={user.photo}
-                  alt={user.name}
-                />
-              </div>
-              <div className="w-full">
-                <h2 className="text-lg font-r text-left text-purple-600 line-clamp-1 ">
-                  {user.name}{" "}
-                  {user.verify && (
-                    <span className="relative inline-flex items-center ml-1 top-1">
-                      <Verification />
-                    </span>
-                  )}
-                </h2>
-                <p className="mt-[2px]  text-left font-m text-gray-600">
-                  {user.branch}
-                  {getYearText(user.year)}
-                </p>
-                <div className="w-full my-2">
-                  <button
-                    className="w-[48%] mr-[2%] py-2 bg-purple-500 hover:bg-purple-700 rounded-md font-r text-white"
-                    onClick={() => Accept(user._id)}
-                  >
-                    Accept
-                  </button>
-                  <button
-                    className="w-[48%] ml-[2%] py-2 bg-white border-2 border-purple-500 hover:border-purple-700 rounded-md font-r text-gray-700"
-                    onClick={() => Reject(user._id)}
-                  >
-                    Reject
-                  </button>
+          {users.length === 0 && (
+            <div className="mt-6 text-center text-r tracking-wide text-gray-600 text-lg ">
+              No New Requests
+            </div>
+          )}
+          {Array.isArray(users) &&
+            users.map((user) => (
+              <div
+                key={user._id}
+                className="my-4 mx-3 p-2 bg-purple-100 flex flex-cols gap-4 rounded-xl content-stretch"
+              >
+                <div>
+                  <img
+                    className="w-24 mt-1 aspect-square object-cover rounded-[50%]"
+                    src={user.photo}
+                    alt={user.name}
+                  />
+                </div>
+                <div className="w-full">
+                  <h2 className="text-lg font-r text-left text-purple-600 line-clamp-1 ">
+                    {user.name}{" "}
+                    {user.verify && (
+                      <span className="relative inline-flex items-center ml-1 top-1">
+                        <Verification />
+                      </span>
+                    )}
+                  </h2>
+                  <p className="mt-[2px]  text-left font-m text-gray-600">
+                    {user.branch}
+                    {getYearText(user.year)}
+                  </p>
+                  <div className="w-full my-2">
+                    <button
+                      className="w-[48%] mr-[2%] py-2 bg-purple-500 hover:bg-purple-700 rounded-md font-r text-white"
+                      onClick={() => Accept(user._id)}
+                    >
+                      Accept
+                    </button>
+                    <button
+                      className="w-[48%] ml-[2%] py-2 bg-white border-2 border-purple-500 hover:border-purple-700 rounded-md font-r text-gray-700"
+                      onClick={() => Reject(user._id)}
+                    >
+                      Reject
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
 
         <BottomNavbar />
