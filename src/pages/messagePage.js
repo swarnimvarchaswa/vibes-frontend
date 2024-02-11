@@ -51,8 +51,8 @@ function MessagePage() {
         ) : (
           <>
             {chats.length === 0 && (
-              <div className="mt-6 text-m tracking-wide text-gray-600 text-lg ">
-                No New Messages
+              <div className="mt-6 text-r text-center tracking-wide text-gray-600 text-lg ">
+                Add Friends for chat
               </div>
             )}
             {Array.isArray(chats) &&
