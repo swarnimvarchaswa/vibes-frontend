@@ -62,6 +62,14 @@ function App() {
       ),
     },
     {
+      path: "/message/:chatId",
+      element: (
+        <div>
+          <h1>Updating Soon</h1>
+        </div>
+      )
+    },
+    {
       path: "/match",
       element: (
         <div>

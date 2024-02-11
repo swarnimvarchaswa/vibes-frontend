@@ -85,7 +85,7 @@ function MatchPage() {
 
   const Connect = () => {
     try {
-      fetch("https://vibes-api.onrender.com/connectRequest", {
+      fetch("https://vibes-api.onrender.com/request", {
         method: "put",
         headers: {
           "Content-Type": "application/json",
@@ -99,9 +99,6 @@ function MatchPage() {
           if (!res.ok) {
             throw new Error("Update name failed");
           }
-          Request();
-          Match();
-          Limit();
           return res.json();
         })
         .catch((err) => {
@@ -110,6 +107,9 @@ function MatchPage() {
     } catch (error) {
       console.error("Error updating name:", error);
     }
+   
+    IncreaseLimit();
+    Match();
   };
 
   const Limit = () => {
@@ -127,24 +127,22 @@ function MatchPage() {
       });
   };
 
-  const Request = () => {
+  const IncreaseLimit = () => {
     try {
-      fetch("https://vibes-api.onrender.com/request", {
+      fetch("https://vibes-api.onrender.com/limit", {
         method: "put",
         headers: {
           "Content-Type": "application/json",
           Authorization: "Bearer " + localStorage.getItem("jwt"),
         },
-
-        body: JSON.stringify({
-          id: id,
-        }),
       })
         .then((res) => {
           if (!res.ok) {
             throw new Error("Update name failed");
           }
+           Limit()
           return res.json();
+         
         })
         .catch((err) => {
           console.error("Error updating name:", err);
@@ -210,7 +208,7 @@ function MatchPage() {
           className="bg-purple-100 mr-[2%] w-[48%] text-gray-700ctext-lg font-r py-3 rounded-xl border-2 border-purple-600 shadow-2xl shadow-purple-200 "
           onClick={nextButtonClick}
         >
-          Next
+          Skip
         </button>
         <button
           className="bg-gradient-to-bl from-purple-500 to-purple-800 ml-[2%] w-[48%] text-white text-lg font-r py-3 rounded-xl shadow-2xl shadow-purple-200"

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { Link, useLocation } from "react-router-dom";
 
@@ -10,6 +10,47 @@ import ProfileIcon from "../Icons/ProfileIcon";
 
 function BottomNavbar() {
   const location = useLocation();
+  const [notification, setNotification] = useState("");
+
+  useEffect(() => {
+    fetch("https://vibes-api.onrender.com/isnotification", {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("jwt"),
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // console.log(data.isNotification)
+        setNotification(data.isNotification);
+      });
+  }, []);
+
+  // const handleNotificationClick = () => {
+  //   try {
+  //     fetch("http://localhost:5000/isnotification", {
+  //       method: "put",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: "Bearer " + localStorage.getItem("jwt"),
+  //       },
+  //     })
+  //       .then((res) => {
+  //         if (!res.ok) {
+  //           throw new Error("Update name failed");
+  //         }
+  //         console.log("working")
+  //         return res.json();
+          
+  //       })
+  //       .catch((err) => {
+  //         console.error("Error updating name:", err);
+  //       });
+  //   } catch (error) {
+  //     console.error("Error updating name:", error);
+  //   }
+  // };
 
   return (
     <div>
@@ -56,11 +97,11 @@ function BottomNavbar() {
             // onClick={handleNotificationClick}
           >
             <NotificationIcon />
-            {/* {showNotificationHR ? (
+            {notification ? (
               <hr className="border-solid border-[3px] rounded-full z-50 border-purple-600 w-0 relative bottom-[-2px]" />
             ) : (
               <hr className="border-solid border-[3px] rounded-full z-50 opacity-0 w-0 relative bottom-[-2px]" />
-            )} */}
+            )}
           </Link>
 
           <Link
