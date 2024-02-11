@@ -138,7 +138,7 @@ function NotificationPage() {
       <div>
         <Navbar />
         <div className="mx-auto mt-12 absolute top-8 left-0 w-dvw">
-          {users.map((user) => (
+          {Array.isArray(users) && users.map((user) => (
             <div
               key={user._id}
               className="my-4 mx-3 p-2 bg-purple-100 flex flex-cols gap-4 rounded-xl content-stretch"
