@@ -383,9 +383,11 @@ function EditPage() {
           className="w-full px-3 py-2 rounded-md border-2 border-gray-300 focus:outline-purple-500"
         />
         {/* Remaining characters count */}
+        {typeof about === 'string' && (
         <p className="text-gray-500 text-right px-3 mt-2 font-m tracking-wide text-sm text-left">
           {about.length}/300
         </p>
+        )}
 
         {/* Name error */}
         {aboutError && (
