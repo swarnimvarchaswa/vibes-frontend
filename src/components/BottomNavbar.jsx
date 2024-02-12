@@ -54,7 +54,7 @@ function BottomNavbar() {
 
   return (
     <div>
-      <nav className="fixed bottom-0 left-0  w-full bg-white py-4 border-t-[1px]">
+      <nav className="fixed bottom-0 left-0  w-full bg-white py-4 border-t-[1px] z-80">
         <div className="flex justify-around">
           <Link
             to="/home"

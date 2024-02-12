@@ -44,7 +44,7 @@ function NotificationPage() {
       case "3":
         return ", Third Year";
       case "4":
-        return ", Fourth Year";
+        return ", Final Year";
       default:
         return ""; // Handle default case if necessary
     }
