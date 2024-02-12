@@ -72,7 +72,7 @@ function MatchPage() {
             setYear(", Third Year");
             break;
           case "4":
-            setYear(", Fourth Year");
+            setYear(", Final Year");
             break;
           default:
             // Handle default case if necessary
