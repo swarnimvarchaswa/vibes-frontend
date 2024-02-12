@@ -42,7 +42,7 @@ function VerifyPage() {
       </p>
       <p className="mx-[12vw] mt-6 font-r text-justify text-gray-700">
         Our team will review the verification text and cross-reference it with
-        your registered email. If the information is secure and matches our
+        your registered email. If the information is correct and matches our
         records, your account will be verified.{" "}
       </p>
 
