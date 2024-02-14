@@ -98,7 +98,7 @@ function MainPage() {
 
         <div className="mt-8 mx-4">
           <h2 className="text-3xl mt-8 font-r text-center text-gray-700">
-            Vibe of Valentine
+            Vibe of Campus
           </h2>
 
           {/* Tab will shown here */}
