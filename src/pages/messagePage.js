@@ -18,7 +18,7 @@ function MessagePage() {
 
   useEffect(() => {
     // Make a fetch request to retrieve chat data
-    fetch("http://localhost:5000/chat", {
+    fetch("https://vibes-api.onrender.com/chat", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

@@ -63,7 +63,7 @@ export const SocketProvider = ({ children }) => {
     if (socket) {
       // console.log("Setting up socket event listener");
       socket.on("new notification", (newMessageReceived) => {
-        fetch("http://localhost:5000/loginuser", {
+        fetch("https://vibes-api.onrender.com/loginuser", {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("jwt"),
           },
@@ -110,7 +110,7 @@ export const SocketProvider = ({ children }) => {
     try {
       const fetchUser = async () => {
         const response = await fetch(
-          "http://localhost:5000/loginuser",
+          "https://vibes-api.onrender.com/loginuser",
           {
             headers: {
               Authorization: "Bearer " + localStorage.getItem("jwt"),
@@ -131,7 +131,7 @@ export const SocketProvider = ({ children }) => {
         }
 
         // Set up a new socket connection
-        const ENDPOINT = "http://localhost:5000";
+        const ENDPOINT = "https://vibes-api.onrender.com";
         // const ENDPOINT = "https://booktrade-api.onrender.com";
 
         const connectSocket = () => {
