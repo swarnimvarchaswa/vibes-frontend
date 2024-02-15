@@ -18,7 +18,7 @@ function MessagePage() {
 
   useEffect(() => {
     // Make a fetch request to retrieve chat data
-    fetch("https://vibes-api.onrender.com/chat", {
+    fetch("http://localhost:5000/chat", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -27,6 +27,7 @@ function MessagePage() {
     })
       .then((response) => response.json())
       .then((data) => {
+        // console.log(data);
         setChats(data); // Set the retrieved chat data to the state
         setIsLoading(false);
       })
@@ -81,24 +82,29 @@ function MessagePage() {
                             {chat.users[0].name}{" "}
                             {/* Use the name of the first user */}
                           </h2>
-                          <p className="font-r tracking-wide font-normal text-sm line-clamp-1 text-gray-400">
-                            {chat.latestMessage}
+                          <p
+                            className={`font-r tracking-wide font-normal text-sm line-clamp-1 ${
+                              chat.latestMessage.sender._id ===
+                                chat.users[0]._id && !chat.latestMessage.isRead
+                                ? "text-gray-800"
+                                : "text-gray-400"
+                            } `}
+                          >
+                            {chat.latestMessage.content}
                           </p>
                         </div>
                       </div>
                     </div>
-                    {/* <div className="basis-1/10 content place-self-center pr-2 mr-0 ml-auto mt-0">
-                    <div className="grid grid-row">
-                      <Link to={`/message/${chat._id}`}>
-                        <div className="text-[11px]  bg-green-500 w-5 h-5 rounded-full flex items-center text-white mb-[8px] mt-[4px]">
-                          <p className="font-r m-auto">11</p>
-                        </div>
-                        <p className="font-r tracking-wide font-normal text-xs line-clamp-1 text-green-400">
-                          4:57
-                        </p>
-                      </Link>
+                    <div className="basis-1/10 content place-self-center pr-2 mr-0 ml-auto mt-0">
+                      <div className="grid grid-row">
+                        {chat.latestMessage.sender._id === chat.users[0]._id &&
+                          !chat.latestMessage.isRead && (
+                            <span class="relative flex h-3 w-3">
+                              <span class="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
+                            </span>
+                          )}
+                      </div>
                     </div>
-                  </div> */}
                   </Link>
                   <hr />
                 </div>

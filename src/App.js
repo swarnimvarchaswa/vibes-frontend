@@ -19,6 +19,10 @@ import FaqPage from "./pages/faqPage";
 import VerifyPage from "./pages/verifyPage";
 import ContactPage from "./pages/contactPage";
 import EditPage from "./pages/editPage";
+import ChatPage from "./pages/chatPage";
+
+import { SocketProvider } from "./context/socketContext";
+
 
 import {
   createBrowserRouter,
@@ -65,7 +69,7 @@ function App() {
       path: "/message/:chatId",
       element: (
         <div>
-          <h1>Updating Soon</h1>
+          <ChatPage />
         </div>
       )
     },
@@ -178,10 +182,12 @@ function App() {
   return (
     <div className="App bg-purple-50">
       <div className="hidden sm:block ">
-        <h1>This App is only for mobile screeen</h1>
+        <h1>This App is only for mobile screen</h1>
       </div>
       <div className="visible sm:invisible">
+        <SocketProvider>
         <RouterProvider router={router} />
+        </SocketProvider>
       </div>
     </div>
   );
