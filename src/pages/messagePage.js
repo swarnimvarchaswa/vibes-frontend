@@ -82,6 +82,7 @@ function MessagePage() {
                             {chat.users[0].name}{" "}
                             {/* Use the name of the first user */}
                           </h2>
+                          {chat.latestMessage && (
                           <p
                             className={`font-r tracking-wide font-normal text-sm line-clamp-1 ${
                               chat.latestMessage.sender._id ===
@@ -91,13 +92,13 @@ function MessagePage() {
                             } `}
                           >
                             {chat.latestMessage.content}
-                          </p>
+                          </p>)}
                         </div>
                       </div>
                     </div>
                     <div className="basis-1/10 content place-self-center pr-2 mr-0 ml-auto mt-0">
                       <div className="grid grid-row">
-                        {chat.latestMessage.sender._id === chat.users[0]._id &&
+                        {chat.latestMessage && chat.latestMessage.sender._id === chat.users[0]._id &&
                           !chat.latestMessage.isRead && (
                             <span class="relative flex h-3 w-3">
                               <span class="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>

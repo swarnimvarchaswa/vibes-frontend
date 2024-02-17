@@ -723,139 +723,107 @@ export default UploadPhoto;
 
 // export default UploadPhoto;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import React, { useState, useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 // import Cropper from "react-easy-crop";
 
+// import getCroppedImg from "../utils/cropImage";
+
 // function UploadPhoto() {
+//   // const inputRef = React.useRef();
 //   const navigate = useNavigate();
+
+//   // const triggerFileSelectPopup = () => inputRef.current.click();
+
 //   const [image, setImage] = useState(null);
-//   const [previewImage, setPreviewImage] = useState(null);
+//   const [croppedArea, setCroppedArea] = useState(null);
+
+//   // const [previewImage, setPreviewImage] = useState(null);
 //   const [isLoading, setIsLoading] = useState(false);
 //   const [crop, setCrop] = useState({ x: 0, y: 0 });
 //   const [zoom, setZoom] = useState(1);
-//   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
+//   const [img, setImg] = useState("")
 
-//   const [a, setA] = useState("");
-
-//   const handleFileChange = (event) => {
-//     const selectedImage = event.target.files[0];
-//     if (selectedImage) {
-//       setImage(selectedImage);
-//       setPreviewImage(URL.createObjectURL(selectedImage));
-//     }
+//   const onCropComplete = (croppedAreaPercentage, croppedAreaPixels) => {
+//     setCroppedArea(croppedAreaPixels);
 //   };
 
-//   const createImage = (url) =>
-//     new Promise((resolve, reject) => {
-//       const image = new Image();
-
-//       image.onload = () => {
-//         console.log("Image loaded successfully");
-//         resolve(image);
-//       };
-
-//       image.onerror = (error) => {
-//         console.error("Error loading image:", error);
-//         reject(error);
-//       };
-
-//       // image.setAttribute("crossOrigin", "anonymous");
-//       // image.src = url;
-
-//       image.addEventListener("load", () => resolve(image));
-//       image.addEventListener("error", (error) => reject(error));
-//       image.setAttribute("crossOrigin", "anonymous");
-//       image.src = url;
-//     });
-
-//   function getRadianAngle(degreeValue) {
-//     return (degreeValue * Math.PI) / 180;
-//   }
-
-//   const getCroppedImg = async (imageSrc, pixelCrop, rotation = 0) => {
-
-//     try {
-
-//     console.log("getCroppedImg: Start");
-//     // const image = await createImage(imageSrc);
-
-//     const image = await createImage(imageSrc);
-
-//     console.log("getCroppedImg: Image loaded");
-
-//     const canvas = document.createElement("canvas");
-//     const ctx = canvas.getContext("2d");
-
-//     const maxSize = Math.max(image.width, image.height);
-//     const safeArea = 2 * ((maxSize / 2) * Math.sqrt(2));
-
-//     canvas.width = safeArea;
-//     canvas.height = safeArea;
-
-//     ctx.translate(safeArea / 2, safeArea / 2);
-//     ctx.rotate(getRadianAngle(rotation));
-//     ctx.translate(-safeArea / 2, -safeArea / 2);
-
-//     ctx.drawImage(
-//       image,
-//       safeArea / 2 - image.width * 0.5,
-//       safeArea / 2 - image.height * 0.5
-//     );
-//     const data = ctx.getImageData(0, 0, safeArea, safeArea);
-
-//     canvas.width = pixelCrop.width;
-//     canvas.height = pixelCrop.height;
-
-//     ctx.putImageData(
-//       data,
-//       Math.round(0 - safeArea / 2 + image.width * 0.5 - pixelCrop.x),
-//       Math.round(0 - safeArea / 2 + image.height * 0.5 - pixelCrop.y)
-//     );
-
-//     return new Promise((resolve) => {
-//       canvas.toBlob((file) => {
-//         console.log("getCroppedImg: Blob created");
-
-//         resolve(URL.createObjectURL(file));
-//       }, "image/jpeg");
-//     });
-//   } catch (error) {
-//     console.error("Error in getCroppedImg:", error);
-//     console.log("Error details:", error.message, error.stack);
-//     throw error; // rethrow the error
-//   }
-// };
-
-//   // async function random() {
-//   //   const croppedImageUrl = await getCroppedImg(image, croppedAreaPixels);
-//   //   setA(croppedImageUrl);
-//   //   postDetails();
-//   // }
-
-//   async function random() {
-//     try {
-//       const croppedImageUrl = await getCroppedImg(image, croppedAreaPixels);
-//       setA(croppedImageUrl);
-//       postDetails();
-//     } catch (error) {
-//       console.error("Error in random:", error);
-//       console.log("Error details:", error.message, error.stack);
+//   const onSelectFile = (event) => {
+//     if (event.target.files && event.target.files.length > 0) {
+//       const reader = new FileReader();
+//       reader.readAsDataURL(event.target.files[0]);
+//       reader.addEventListener("load", () => {
+//         setImage(reader.result);
+//       });
 //     }
-//   }
+//   };
+//   // const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
+
+//   //   const [a, setA] = useState("");
+
+//   const handleFileChange = (event) => {
+//     // const selectedImage = event.target.files[0];
+//     // if (selectedImage) {
+//     //   setImage(selectedImage);
+//     //   // setPreviewImage(URL.createObjectURL(selectedImage));
+//     // }
+//     const croppedImageBlob = getCroppedImg(image, croppedArea);
+//       const croppedFile = new File([croppedImageBlob], "cropped-image.jpg");
+//       setImg(URL.createObjectURL(croppedFile))
+//   };
 
 //   const postDetails = async () => {
+//     // const onDownload = () => {
+//     //   generateDownload(image, croppedArea);
+//     // };
+
+
+
+
 //     setIsLoading(true);
 
 //     try {
-//       // const croppedImageUrl = await getCroppedImg(image, croppedAreaPixels);
-
-//       // console.log(croppedImageUrl);
+//       // const croppedImageBlob = await getCroppedImg(image, croppedArea);
+//       // const croppedFile = new File([croppedImageBlob], "cropped-image.jpg");
+//       // setImg(URL.createObjectURL(croppedFile))
+//       // console.log(croppedFile);
+//       console.log(image);
+//       console.log(img)
 
 //       const data = new FormData();
-//       // data.append("file", await fetch(croppedImageUrl).then((r) => r.blob()));
-//       // data.append("file", croppedImageUrl);
-//       data.append("file", a);
+//       // data.append("file", image);
+//       data.append("file", img);
 
 //       data.append("upload_preset", "vibesincampus");
 //       data.append("cloud_name", "vibesincampus");
@@ -921,27 +889,27 @@ export default UploadPhoto;
 //   };
 
 //   const onCancel = () => {
-//     setPreviewImage(null);
+//     setImage(null);
 //   };
 
-//   const onCropComplete = (croppedArea, croppedAreaPixels) => {
-//     if (croppedAreaPixels) {
-//       console.log("2");
-//       console.log(croppedArea, croppedAreaPixels);
+//   //   const onCropComplete = (croppedArea, croppedAreaPixels) => {
+//   //     if (croppedAreaPixels) {
+//   //       console.log("2");
+//   //       console.log(croppedArea, croppedAreaPixels);
 
-//       setCroppedAreaPixels(croppedAreaPixels);
-//     }
-//   };
+//   //       setCroppedAreaPixels(croppedAreaPixels);
+//   //     }
+//   //   };
 
 //   const onCropButtonClick = () => {
 //     console.log("1");
-//     // postDetails();
-//     random();
+//     postDetails();
+//     // random();
 //   };
 
 //   return (
 //     <div>
-//       {!previewImage && (
+//       {!image && (
 //         <div>
 //           <img
 //             className="w-[50%] mx-[25%] mt-[10%]"
@@ -960,22 +928,23 @@ export default UploadPhoto;
 //               id="photo"
 //               name="photo"
 //               accept=".jpg,.jpeg,.png"
-//               onChange={handleFileChange}
+//               onChange={onSelectFile}
 //               placeholder="Profile Picture"
 //             />
 //           </div>
 //         </div>
 //       )}
 
-//       {previewImage && (
+//       {image && (
 //         <div className="mx-[12%] my-12">
 //           <div className="fixed top-0 left-0 right-0 bottom-40 bg-black">
 //             <Cropper
-//               image={previewImage}
+//               image={image}
 //               crop={crop}
 //               zoom={zoom}
 //               aspect={4 / 5}
 //               onCropChange={setCrop}
+//               onZoomChange={setZoom}
 //               onCropComplete={onCropComplete}
 //             />
 //           </div>
