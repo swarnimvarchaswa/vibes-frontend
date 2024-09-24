@@ -23,7 +23,6 @@ import ChatPage from "./pages/chatPage";
 
 import { SocketProvider } from "./context/socketContext";
 
-
 import {
   createBrowserRouter,
   RouterProvider,
@@ -71,7 +70,7 @@ function App() {
         <div>
           <ChatPage />
         </div>
-      )
+      ),
     },
     {
       path: "/match",
@@ -180,7 +179,7 @@ function App() {
   ]);
 
   return (
-    <div className="App bg-purple-50" >
+    <div className="App bg-purple-50">
       <style>
         {`
           /* Hide scrollbars for all elements */
@@ -193,10 +192,6 @@ function App() {
           *::-webkit-scrollbar {
             display: none;
           }
-
-          body, html {
-            overflow: hidden;
-          }
         `}
       </style>
       {/* <div className="hidden sm:block ">
@@ -205,7 +200,7 @@ function App() {
       {/* <div className="visible sm:invisible"> */}
       <div className="max-w-xl h-full mx-auto">
         <SocketProvider>
-        <RouterProvider router={router} />
+          <RouterProvider router={router} />
         </SocketProvider>
       </div>
     </div>
