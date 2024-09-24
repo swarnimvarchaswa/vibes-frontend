@@ -67,7 +67,7 @@ function Navbar() {
         <div>
           <Link
             to="/menu"
-            className={`flex flex-row items-center text-gray-700  lg:sr-only ${
+            className={`flex flex-row items-center text-gray-700  ${
               location.pathname === "/menu" ? "text-purple-500 " : ""
             }
           ${location.pathname === "/profile" ? " " : "hidden"}`}

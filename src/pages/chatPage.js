@@ -266,7 +266,7 @@ export default function ChatBox() {
   };
 
   return (
-    <div className="lg:w-4/5 w-full fixed right-0 rounded">
+    <div className=" w-full max-w-xl fixed mx-auto rounded">
       <div className="fixed w-full z-10">
         <div
           to={`/user/${otherUserId}`}
@@ -369,7 +369,7 @@ export default function ChatBox() {
         </div>
         <div className="fixed bottom-0 bg-slate-50 pb-6 pt-2 pl-[3vw] pr-[3vw] flex items-center w-full">
           <input
-            className="py-3 pl-3 pr-14 w-full lg:w-[74vw] rounded-lg bg-gray-200 outline-none"
+            className="py-3 pl-3 pr-14 w-full rounded-lg bg-gray-200 outline-none"
             type="text"
             id="newMessage"
             name="newMessage"

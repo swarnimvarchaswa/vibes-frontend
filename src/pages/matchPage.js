@@ -171,7 +171,9 @@ function MatchPage() {
     <div>
       <Navbar />
       <div className="absolute top-16 bottom-48 overflow-hidden max-w-xl mx-auto">
-        <div className=" relative mx-[12vw] mt-[8vw] border-0 border-purple-500 rounded-xl overflow-hidden">
+        {/* <div className=" relative mx-[12vw] mt-[8vw] border-0 border-purple-500 rounded-xl overflow-hidden"> */}
+        <div className=" relative mx-16 lg:mx-32 mt-16 border-0 border-purple-500 rounded-xl overflow-hidden">
+
           <img
             className="relative top-0 w-full aspect-square"
             src={photo}
@@ -203,7 +205,7 @@ function MatchPage() {
           </p>
         </div>
       </div>
-      <div className="flex flex-row px-[12vw] absolute w-full bottom-28 max-w-xl mx-auto">
+      <div className="flex flex-row px-12 lg:px-28 absolute w-full bottom-28 max-w-xl mx-auto">
         <button
           className="bg-purple-100 mr-[2%] w-[48%] text-gray-700ctext-lg font-r py-3 rounded-xl border-2 border-purple-600 shadow-2xl shadow-purple-200 "
           onClick={nextButtonClick}

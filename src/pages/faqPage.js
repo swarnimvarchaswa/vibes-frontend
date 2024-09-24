@@ -31,7 +31,7 @@ function FaqPage() {
       };
     
       return (
-        <div className="container w-[90vw] mt-16 mx-[5vw]">
+        <div className="container w-[90vw] lg:w-full mt-16 mx-[5vw] lg:mx-2">
         <h2 className="text-left font-r text-2xl my-8 tracking-wide text-gray-700 px-4">Frequently Asked Questions</h2>
           {faqData.map((item, index) => (
             <div key={index} className="mb-4">

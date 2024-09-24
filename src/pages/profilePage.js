@@ -37,7 +37,6 @@ function ProfilePage() {
     })
   })
 
-  
 
   useEffect(() => {
     fetch("https://vibes-api.onrender.com/profile", {
@@ -82,7 +81,7 @@ function ProfilePage() {
     <div>
       <Navbar />
       <BottomNavbar />
-      <div className=" relative mx-[12vw] mt-[12vw] border-0 border-purple-500 rounded-xl overflow-hidden">
+      <div className=" relative mx-[12vw] lg:mx-28 mt-[12vw] lg:mt-20 border-0 border-purple-500 rounded-xl overflow-hidden">
         <img
           className="relative top-0 w-full aspect-square"
           src={photo}

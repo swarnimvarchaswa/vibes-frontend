@@ -9,8 +9,7 @@ function Login() {
   const [isLoading, setIsLoading] = useState();
 
   const postData = () => {
-
-    setIsLoading(true)
+    setIsLoading(true);
 
     fetch("https://vibes-api.onrender.com/login", {
       method: "post",
@@ -28,7 +27,7 @@ function Login() {
         } else {
           // console.log("jwt", data)
           localStorage.setItem("jwt", data);
-          setIsLoading(false)
+          setIsLoading(false);
           navigate("/home");
         }
       })
@@ -38,8 +37,7 @@ function Login() {
   };
 
   const postDataGuest = () => {
-
-    setIsLoading(true)
+    setIsLoading(true);
 
     fetch("https://vibes-api.onrender.com/login", {
       method: "post",
@@ -57,7 +55,7 @@ function Login() {
         } else {
           // console.log("jwt", data)
           localStorage.setItem("jwt", data);
-          setIsLoading(false)
+          setIsLoading(false);
           navigate("/home");
         }
       })
@@ -65,8 +63,6 @@ function Login() {
         console.error("Error during login:", error);
       });
   };
-
-
 
   useEffect(() => {
     // This useEffect will be triggered when email state changes
@@ -92,10 +88,10 @@ function Login() {
         />
       ) : (
         <div>
-          <h2 className="text-center mx-[12%] mb-8 text-2xl font-r tracking-wider my-6 text-gray-800">
+          <h2 className="text-center mx-[12%] mb-8 text-2xl font-r tracking-wider my-6 text-gray-800 max-w-md w-full">
             Login with Google
           </h2>
-          <div className="mx-[12%] border-2 rounded-md border-purple-500">
+          {/* <div className="mx-[12%] border-2 rounded-md border-purple-500">
             <GoogleLogin
               onSuccess={(credentialResponse) => {
                 // console.log(credentialResponse);
@@ -113,22 +109,54 @@ function Login() {
           <br />
           <br />
 
-          <button className="mx-[12%] border-2 rounded-md border-purple-500 w-72 h-10 text-purple-600 hover:bg-purple-600 hover:text-white"
+          <button className="mx-[12%] border-2 rounded-md border-purple-500 w-full max-w-md h-10 text-purple-600 hover:bg-purple-600 hover:text-white"
           onClick={() => {
             postDataGuest();
           }}
           >
             Log In as Guest
-          </button>
+          </button> */}
+
+          <div className="mx-[12%] space-y-6">
+            {/* Google Login Button */}
+            <div className="flex justify-center">
+              <GoogleLogin
+                onSuccess={(credentialResponse) => {
+                  var cred = jwtDecode(credentialResponse.credential);
+                  setEmail(cred.email);
+                }}
+                onError={() => {
+                  console.log("Login Failed");
+                }}
+              />
+            </div>
+
+            {/* Divider */}
+            <div className="flex items-center justify-center">
+              <div className="border-t border-gray-300 w-1/3"></div>
+              <span className="text-gray-500 px-3">OR</span>
+              <div className="border-t border-gray-300 w-1/3"></div>
+            </div>
+
+            {/* Guest Login Button */}
+            <button
+              className="w-full max-w-md mx-auto border-2 rounded-md border-purple-500 h-12 text-purple-600 hover:bg-purple-600 hover:text-white transition-all duration-300 ease-in-out"
+              onClick={() => {
+                postDataGuest();
+              }}
+            >
+              Log In as Guest
+            </button>
+          </div>
 
           <div className="mt-10">
-          <p className="text-center text-gray-600 font-r tracking-wide">
-            Don't have an account?{" "}
-            <Link to="/signup" className="text-purple-600 hover:underline">
-              Sign Up
-            </Link>
-          </p>
-        </div>
+            <p className="text-center text-gray-600 font-r tracking-wide">
+              Don't have an account?{" "}
+              <Link to="/signup" className="text-purple-600 hover:underline">
+                Sign Up
+              </Link>
+            </p>
+          </div>
         </div>
       )}
     </div>
