@@ -18,7 +18,7 @@
 //   }, []);
 
 //   useEffect(() => {
-//     fetch("https://vibes-api.onrender.com/profile", {
+//     fetch("https://vibes-incampus-server.vercel.app/profile", {
 //       method: "get",
 //       headers: {
 //         "Content-Type": "application/json",
@@ -76,7 +76,7 @@
 //     setIsAboutLoading(true);
 
 //     try {
-//       fetch("https://vibes-api.onrender.com/about", {
+//       fetch("https://vibes-incampus-server.vercel.app/about", {
 //         method: "put",
 //         headers: {
 //           "Content-Type": "application/json",
@@ -242,7 +242,7 @@ function EditPage() {
   }, [navigate]);
 
   useEffect(() => {
-    fetch("https://vibes-api.onrender.com/profile", {
+    fetch("https://vibes-incampus-server.vercel.app/profile", {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -263,7 +263,7 @@ function EditPage() {
     setIsNameLoading(true);
 
     try {
-      fetch("https://vibes-api.onrender.com/editprofile", {
+      fetch("https://vibes-incampus-server.vercel.app/editprofile", {
         method: "put",
         headers: {
           "Content-Type": "application/json",
@@ -297,7 +297,7 @@ function EditPage() {
     setIsAboutLoading(true);
 
     try {
-      fetch("https://vibes-api.onrender.com/about", {
+      fetch("https://vibes-incampus-server.vercel.app/about", {
         method: "put",
         headers: {
           "Content-Type": "application/json",

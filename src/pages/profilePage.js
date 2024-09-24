@@ -22,7 +22,7 @@ function ProfilePage() {
   }, []);
 
   useEffect(() => {
-    fetch("https://vibes-api.onrender.com/isanswers", {
+    fetch("https://vibes-incampus-server.vercel.app/isanswers", {
       method: "get",
       headers: {
         'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ function ProfilePage() {
 
 
   useEffect(() => {
-    fetch("https://vibes-api.onrender.com/profile", {
+    fetch("https://vibes-incampus-server.vercel.app/profile", {
       method: "get",
       headers: {
         "Content-Type": "application/json",

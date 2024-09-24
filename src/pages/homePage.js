@@ -20,7 +20,7 @@ function MainPage() {
   }, []);
 
   useEffect(() => {
-    fetch("https://vibes-api.onrender.com/isanswers", {
+    fetch("https://vibes-incampus-server.vercel.app/isanswers", {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -36,7 +36,7 @@ function MainPage() {
   });
 
   const fetchTop10FemaleUsers = () => {
-    fetch("https://vibes-api.onrender.com/top10users-female", {
+    fetch("https://vibes-incampus-server.vercel.app/top10users-female", {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -51,7 +51,7 @@ function MainPage() {
   };
 
   const fetchTop10MaleUsers = () => {
-    fetch("https://vibes-api.onrender.com/top10users-male", {
+    fetch("https://vibes-incampus-server.vercel.app/top10users-male", {
       method: "get",
       headers: {
         "Content-Type": "application/json",

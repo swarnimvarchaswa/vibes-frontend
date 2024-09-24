@@ -27,7 +27,7 @@ function MatchPage() {
   }, []);
 
   useEffect(() => {
-    fetch("https://vibes-api.onrender.com/isanswers", {
+    fetch("https://vibes-incampus-server.vercel.app/isanswers", {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +43,7 @@ function MatchPage() {
   });
 
   const Match = () => {
-    fetch("https://vibes-api.onrender.com/match", {
+    fetch("https://vibes-incampus-server.vercel.app/match", {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -85,7 +85,7 @@ function MatchPage() {
 
   const Connect = () => {
     try {
-      fetch("https://vibes-api.onrender.com/request", {
+      fetch("https://vibes-incampus-server.vercel.app/request", {
         method: "put",
         headers: {
           "Content-Type": "application/json",
@@ -113,7 +113,7 @@ function MatchPage() {
   };
 
   const Limit = () => {
-    fetch("https://vibes-api.onrender.com/connectionlimit", {
+    fetch("https://vibes-incampus-server.vercel.app/connectionlimit", {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -129,7 +129,7 @@ function MatchPage() {
 
   const IncreaseLimit = () => {
     try {
-      fetch("https://vibes-api.onrender.com/limit", {
+      fetch("https://vibes-incampus-server.vercel.app/limit", {
         method: "put",
         headers: {
           "Content-Type": "application/json",

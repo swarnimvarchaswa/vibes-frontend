@@ -119,7 +119,7 @@ export default function ChatBox() {
 
   // Fetch logged-in user id
   useEffect(() => {
-    fetch("https://vibes-api.onrender.com/loginuser", {
+    fetch("https://vibes-incampus-server.vercel.app/loginuser", {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("jwt"),
       },
@@ -133,7 +133,7 @@ export default function ChatBox() {
 
   // Fetch other user's name and profile picture
   useEffect(() => {
-    fetch(`https://vibes-api.onrender.com/chat/${chatId}`, {
+    fetch(`https://vibes-incampus-server.vercel.app/chat/${chatId}`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: "Bearer " + localStorage.getItem("jwt"),
@@ -163,7 +163,7 @@ export default function ChatBox() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://vibes-api.onrender.com/message/${chatId}`,
+          `https://vibes-incampus-server.vercel.app/message/${chatId}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -220,7 +220,7 @@ export default function ChatBox() {
       content: newMessage,
     });
 
-    fetch(`https://vibes-api.onrender.com/message`, {
+    fetch(`https://vibes-incampus-server.vercel.app/message`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

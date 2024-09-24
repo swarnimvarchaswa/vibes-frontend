@@ -7,7 +7,7 @@ function WelcomePage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("https://vibes-api.onrender.com/username", {
+    fetch("https://vibes-incampus-server.vercel.app/username", {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("jwt"),
       },

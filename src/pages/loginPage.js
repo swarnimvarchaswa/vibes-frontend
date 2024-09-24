@@ -11,7 +11,7 @@ function Login() {
   const postData = () => {
     setIsLoading(true);
 
-    fetch("https://vibes-api.onrender.com/login", {
+    fetch("https://vibes-incampus-server.vercel.app/login", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +39,7 @@ function Login() {
   const postDataGuest = () => {
     setIsLoading(true);
 
-    fetch("https://vibes-api.onrender.com/login", {
+    fetch("https://vibes-incampus-server.vercel.app/login", {
       method: "post",
       headers: {
         "Content-Type": "application/json",

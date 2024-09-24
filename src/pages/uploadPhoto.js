@@ -68,7 +68,7 @@ function UploadPhoto() {
 
   const PostPic = (imageUrl) => {
     try {
-      fetch("https://vibes-api.onrender.com/uploadprofilepic", {
+      fetch("https://vibes-incampus-server.vercel.app/uploadprofilepic", {
         method: "put",
         headers: {
           "Content-Type": "application/json",

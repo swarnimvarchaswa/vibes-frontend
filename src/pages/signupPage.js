@@ -36,7 +36,7 @@ function SignupPage() {
       try {
         setStartLoading(true);
 
-        const response = await fetch("https://vibes-api.onrender.com/login", {
+        const response = await fetch("https://vibes-incampus-server.vercel.app/login", {
           method: "post",
           headers: {
             "Content-Type": "application/json",
@@ -78,7 +78,7 @@ function SignupPage() {
 
     setIsLoading(true);
 
-    fetch("https://vibes-api.onrender.com/signup", {
+    fetch("https://vibes-incampus-server.vercel.app/signup", {
       method: "post",
       headers: {
         "Content-Type": "application/json",

@@ -17,7 +17,7 @@ function NotificationPage() {
   }, []);
 
   const fetchRequests = () => {
-    fetch("https://vibes-api.onrender.com/request", {
+    fetch("https://vibes-incampus-server.vercel.app/request", {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +52,7 @@ function NotificationPage() {
 
   const Reject = (id) => {
     try {
-      fetch("https://vibes-api.onrender.com/removerequest", {
+      fetch("https://vibes-incampus-server.vercel.app/removerequest", {
         method: "put",
         headers: {
           "Content-Type": "application/json",
@@ -82,7 +82,7 @@ function NotificationPage() {
 
   const Accept = (id) => {
     try {
-      fetch("https://vibes-api.onrender.com/friend", {
+      fetch("https://vibes-incampus-server.vercel.app/friend", {
         method: "put",
         headers: {
           "Content-Type": "application/json",
@@ -113,7 +113,7 @@ function NotificationPage() {
   };
 
   const Message = (id) => {
-    fetch("https://vibes-api.onrender.com/chat", {
+    fetch("https://vibes-incampus-server.vercel.app/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

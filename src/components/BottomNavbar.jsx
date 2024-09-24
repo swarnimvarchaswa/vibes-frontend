@@ -13,7 +13,7 @@ function BottomNavbar() {
   const [notification, setNotification] = useState("");
 
   useEffect(() => {
-    fetch("https://vibes-api.onrender.com/isnotification", {
+    fetch("https://vibes-incampus-server.vercel.app/isnotification", {
       method: "get",
       headers: {
         "Content-Type": "application/json",
