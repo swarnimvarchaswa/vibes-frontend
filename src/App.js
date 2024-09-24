@@ -180,7 +180,25 @@ function App() {
   ]);
 
   return (
-    <div className="App bg-purple-50">
+    <div className="App bg-purple-50" >
+      <style>
+        {`
+          /* Hide scrollbars for all elements */
+          * {
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* IE and Edge */
+          }
+          
+          /* For Webkit browsers like Chrome, Safari */
+          *::-webkit-scrollbar {
+            display: none;
+          }
+
+          body, html {
+            overflow: hidden;
+          }
+        `}
+      </style>
       {/* <div className="hidden sm:block ">
         <h1>This App is only for mobile screen</h1>
       </div> */}
