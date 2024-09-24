@@ -60,7 +60,7 @@ function MainPage() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setTop10Users(data);
       });
   };
@@ -102,7 +102,7 @@ function MainPage() {
           </h2>
 
           {/* Tab will shown here */}
-          <div className="max-w-md mx-auto">
+          <div className="max-w-xl mx-auto">
             <div className="  grid grid-cols-6 justify-items-stretch mt-8 border-[1px] bg-white border-gray-300 rounded-md text-center">
               <div className="col-start-1 col-end-4">
                 <div
@@ -139,7 +139,7 @@ function MainPage() {
 
           { top10Users.length > 1 && (
             <>
-              <div className="bg-purple-100 py-6 mt-8 rounded-3xl">
+              <div className="bg-purple-100 py-6 mt-8 rounded-3xl max-w-xl mx-auto">
                 <div className="border-4 border-purple-500 w-fit aspect-square rounded-[50%] mx-auto">
                   <img
                     className="w-36 h-36 rounded-[50%]"
@@ -163,7 +163,7 @@ function MainPage() {
                 </div>
               </div>
 
-              <div className="mt-10 bg-purple-100 rounded-3xl p-6">
+              <div className="mt-10 bg-purple-100 rounded-3xl p-6 max-w-xl mx-auto">
                 {top10Users.slice(1).map((user) => (
                   <div key={user._id}>
                     <div className="flex flex-cols gap-6 px-2">

@@ -58,7 +58,7 @@ function MainPage() {
         </div>
       </div> */}
 
-      <header className="w-dvw h-[80vh] bg-gradient-to-b from-purple-700 to-purple-300">
+      <header className="relative w-full h-[80vh] bg-gradient-to-b from-purple-700 to-purple-300">
         <img
           // className="w-[40%] mx-[30%] pt-[10%] filter invert"
           className="w-[17%] mx-[5%] pt-[10%]"

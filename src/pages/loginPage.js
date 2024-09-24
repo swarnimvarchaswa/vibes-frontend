@@ -37,6 +37,37 @@ function Login() {
       });
   };
 
+  const postDataGuest = () => {
+
+    setIsLoading(true)
+
+    fetch("https://vibes-api.onrender.com/login", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: "swaryanswaryan@gmail.com",
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.error === "newUser") {
+          navigate("/signup", { state: { email: email } });
+        } else {
+          // console.log("jwt", data)
+          localStorage.setItem("jwt", data);
+          setIsLoading(false)
+          navigate("/home");
+        }
+      })
+      .catch((error) => {
+        console.error("Error during login:", error);
+      });
+  };
+
+
+
   useEffect(() => {
     // This useEffect will be triggered when email state changes
     if (email) {
@@ -78,6 +109,17 @@ function Login() {
               }}
             />
           </div>
+
+          <br />
+          <br />
+
+          <button className="mx-[12%] border-2 rounded-md border-purple-500 w-72 h-10 text-purple-600 hover:bg-purple-600 hover:text-white"
+          onClick={() => {
+            postDataGuest();
+          }}
+          >
+            Log In as Guest
+          </button>
 
           <div className="mt-10">
           <p className="text-center text-gray-600 font-r tracking-wide">

@@ -181,10 +181,11 @@ function App() {
 
   return (
     <div className="App bg-purple-50">
-      <div className="hidden sm:block ">
+      {/* <div className="hidden sm:block ">
         <h1>This App is only for mobile screen</h1>
-      </div>
-      <div className="visible sm:invisible">
+      </div> */}
+      {/* <div className="visible sm:invisible"> */}
+      <div className="max-w-xl h-full mx-auto">
         <SocketProvider>
         <RouterProvider router={router} />
         </SocketProvider>

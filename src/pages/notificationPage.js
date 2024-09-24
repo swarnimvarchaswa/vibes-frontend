@@ -137,7 +137,7 @@ function NotificationPage() {
       <BottomNavbar /> */}
       <div>
         <Navbar />
-        <div className="mx-auto mt-12 absolute top-8 left-0 w-dvw">
+        <div className=" mt-12 absolute top-8  w-full max-w-xl mx-auto">
           {users.length === 0 && (
             <div className="mt-6 text-center text-r tracking-wide text-gray-600 text-lg ">
               No New Requests

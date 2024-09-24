@@ -6,7 +6,9 @@ function Navbar() {
   const location = useLocation();
 
   return (
-    <nav className=" bg-purple-200 md:bg-purple-200 lg:px-4 lg:fixed lg:top-0 lg:left-0 lg:w-full lg:z-10">
+    // <nav className=" bg-purple-200 md:bg-purple-200 lg:px-4 lg:fixed lg:top-0 lg:left-0 lg:w-full lg:z-10">
+    <nav className="relative bg-purple-200 md:bg-purple-200 max-w-xl mx-auto ">
+
       {/* <nav className=" bg-purple-100 md:bg-purple-200 lg:px-4 fixed top-0 left-0 w-full"> */}
       <div className="flex items-center justify-between px-4 py-4 mx-auto ">
         {/* all */}
