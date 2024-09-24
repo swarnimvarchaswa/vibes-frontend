@@ -367,7 +367,7 @@ export default function ChatBox() {
           <br />
           <br />
         </div>
-        <div className="fixed bottom-0 bg-slate-50 pb-6 pt-2 pl-[3vw] pr-[3vw] flex items-center w-full">
+        <div className="fixed bottom-0 bg-slate-50 pb-6 pt-2 pl-[3vw] pr-[3vw] flex items-center w-full max-w-xl">
           <input
             className="py-3 pl-3 pr-14 w-full rounded-lg bg-gray-200 outline-none"
             type="text"
@@ -380,7 +380,7 @@ export default function ChatBox() {
             autoComplete="off"
           />
           <button
-            className="fixed pr-3 pl-3 right-[3vw] py-1 rounded-lg bg-gray-200 text-purple-600"
+            className="absolute pr-3 pl-3 right-[3vw] py-1 rounded-lg bg-gray-200 text-purple-600"
             onClick={handleSendMessage}
           >
             <SendIcon />
