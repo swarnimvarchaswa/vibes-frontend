@@ -100,8 +100,8 @@ function MessagePage() {
                       <div className="grid grid-row">
                         {chat.latestMessage && chat.latestMessage.sender._id === chat.users[0]._id &&
                           !chat.latestMessage.isRead && (
-                            <span class="relative flex h-3 w-3">
-                              <span class="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
+                            <span className="relative flex h-3 w-3">
+                              <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
                             </span>
                           )}
                       </div>
