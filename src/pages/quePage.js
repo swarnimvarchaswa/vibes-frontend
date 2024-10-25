@@ -174,7 +174,7 @@ function QuePage() {
     const currentQuestionData = questionData[currentQuestion - 1];
 
     return (
-      <div>
+      <div >
         <Que1
           number={currentQuestionData.number}
           text={currentQuestionData.text}
