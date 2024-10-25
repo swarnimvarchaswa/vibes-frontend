@@ -36,15 +36,18 @@ function SignupPage() {
       try {
         setStartLoading(true);
 
-        const response = await fetch("https://vibes-incampus-server.vercel.app/login", {
-          method: "post",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: email,
-          }),
-        });
+        const response = await fetch(
+          "https://vibes-incampus-server.vercel.app/login",
+          {
+            method: "post",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: email,
+            }),
+          }
+        );
 
         const data = await response.json();
 
@@ -138,19 +141,21 @@ function SignupPage() {
             <h2 className="text-center mx-[12%] max-w-xl mb-8 text-2xl font-r tracking-wider my-6 text-gray-800">
               Signup with Google
             </h2>
-            <div className="mx-[12%] border-2 rounded-md border-purple-500">
-              <GoogleLogin
-                onSuccess={(credentialResponse) => {
-                  // console.log(credentialResponse);
-                  var cred = jwtDecode(credentialResponse.credential);
-                  // console.log(cred.email)
-                  setEmail(cred.email);
-                  // console.log(email);
-                }}
-                onError={() => {
-                  console.log("Login Failed");
-                }}
-              />
+            <div className="mx-[12%] space-y-6">
+              <div className="flex justify-center">
+                <GoogleLogin
+                  onSuccess={(credentialResponse) => {
+                    // console.log(credentialResponse);
+                    var cred = jwtDecode(credentialResponse.credential);
+                    // console.log(cred.email)
+                    setEmail(cred.email);
+                    // console.log(email);
+                  }}
+                  onError={() => {
+                    console.log("Login Failed");
+                  }}
+                />
+              </div>
             </div>
 
             <div className="mt-10 font-r tracking-wide">
