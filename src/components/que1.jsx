@@ -18,11 +18,11 @@ function Que1({ number, text, options, onNextQuestion }) {
 
   return (
     <div>
-      <div className=" absolute top-0 bottom-0 w-dvw bg-gradient-to-b from-50% from-purple-500  to-purple-200 opacity-30"></div>
+      <div className=" absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-50% from-purple-500  to-purple-200 opacity-30"></div>
 
       {/* <h1>Hello world</h1> */}
 
-      <div className="z-10 absolute top-0 bottom-0 w-dvw">
+      <div className="z-10 absolute top-0 bottom-0 left-0 right-0 max-w-xl mx-auto">
         <div className="z-10 absolute top-[6%] left-[10%] h-[60px] w-[60px] rounded-[50%] bg-gradient-to-b from-purple-500 to-purple-900">
           <div className="relative top-[5px] left-[5px] h-[50px] w-[50px] rounded-[50%] bg-gradient-to-t from-purple-500 to-purple-900">
             <p className="relative top-[5px] left-[7px] text-[30px] text-white font-semibold">
