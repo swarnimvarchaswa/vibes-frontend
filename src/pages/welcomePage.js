@@ -28,7 +28,7 @@ function WelcomePage() {
   return (
     <div>
       {/* <div className=" absolute top-0 bottom-0 w-dvw bg-gradient-to-b from-50% from-purple-500  to-purple-200 opacity-30"></div> */}
-      <div className="absolute top-0 left-0 max-w-md mx-auto">
+      <div className="absolute top-0 left-0 right-0 max-w-md mx-auto">
         <img
           className="w-[50%] mx-[25%] mt-[10%]"
           src="https://res.cloudinary.com/booktrade/image/upload/v1706995946/logo_g8glsg.png"
