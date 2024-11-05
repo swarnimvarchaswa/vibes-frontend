@@ -553,7 +553,7 @@ export default function ChatBox() {
 
   return (
     <div className=" w-full max-w-xl fixed mx-auto rounded">
-      <div className="fixed w-full z-10">
+      <div className="fixed w-full max-w-xl z-10">
         <div to={`/user/${otherUserId}`} className="flex items-center bg-white">
           <div className=" flex relative ml-[3vw] mr-2">
             <img
