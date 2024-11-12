@@ -88,7 +88,7 @@ function Login() {
         />
       ) : (
         <div>
-          <h2 className="text-center mx-[12%] mb-8 text-2xl font-r tracking-wider my-6 text-gray-800 max-w-md w-full">
+          <h2 className="text-center mx-auto mb-8 text-2xl font-r tracking-wider my-6 text-gray-800 w-full">
             Login with Google
           </h2>
           {/* <div className="mx-[12%] border-2 rounded-md border-purple-500">
