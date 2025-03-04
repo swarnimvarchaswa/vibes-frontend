@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/navbar";
 import BottomNavbar from "../components/BottomNavbar";
-import CountdownTimer from "../components/counter";
 import Verification from "../Icons/VerificationfillIcon";
 
 function MainPage() {
@@ -36,6 +35,9 @@ function MainPage() {
   });
 
   const fetchTop10FemaleUsers = () => {
+    setLoading(true);
+    setError(null);
+    
     fetch("https://vibes-incampus-server.vercel.app/top10users-female", {
       method: "get",
       headers: {
@@ -43,14 +45,27 @@ function MainPage() {
         Authorization: "Bearer " + localStorage.getItem("jwt"),
       },
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch female users");
+        }
+        return response.json();
+      })
       .then((data) => {
-        // console.log(data);
         setTop10Users(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching female users:", err);
+        setError(err.message);
+        setLoading(false);
       });
   };
 
   const fetchTop10MaleUsers = () => {
+    setLoading(true);
+    setError(null);
+    
     fetch("https://vibes-incampus-server.vercel.app/top10users-male", {
       method: "get",
       headers: {
@@ -58,15 +73,25 @@ function MainPage() {
         Authorization: "Bearer " + localStorage.getItem("jwt"),
       },
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch male users");
+        }
+        return response.json();
+      })
       .then((data) => {
-        // console.log(data);
         setTop10Users(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching male users:", err);
+        setError(err.message);
+        setLoading(false);
       });
   };
 
   useEffect(() => {
-    // Fetch top female users when component mounts
+    // Fetch top users when component mounts or tab changes
     if (activeTab === "1") {
       fetchTop10FemaleUsers();
     } else if (activeTab === "2") {
@@ -85,16 +110,39 @@ function MainPage() {
       case "4":
         return ", Final Year";
       default:
-        return ""; // Handle default case if necessary
+        return "";
     }
   };
 
+  // Skeleton loaders for the top user
+  const TopUserSkeleton = () => (
+    <div className="bg-purple-100 py-6 mt-8 rounded-3xl max-w-xl mx-auto animate-pulse">
+      <div className="border-4 border-purple-500 w-36 h-36 rounded-[50%] mx-auto bg-purple-200"></div>
+      <div className="mx-[12%]">
+        <div className="h-6 w-40 mt-5 bg-purple-200 rounded mx-auto"></div>
+        <div className="h-5 w-64 mt-2 bg-purple-200 rounded mx-auto"></div>
+      </div>
+    </div>
+  );
+
+  // Skeleton loaders for the list items
+  const ListItemSkeleton = () => (
+    <div>
+      <div className="flex flex-cols gap-6 px-2">
+        <div className="w-20 h-20 mt-1 rounded-[50%] bg-purple-200"></div>
+        <div className="w-full">
+          <div className="h-5 w-40 bg-purple-200 rounded"></div>
+          <div className="h-4 w-32 mt-2 bg-purple-200 rounded"></div>
+        </div>
+      </div>
+      <hr className="my-4 border-solid border-2 border-white rounded-md" />
+    </div>
+  );
+
   return (
     <div>
-      {/* <div className=" absolute top-0 bottom-0 w-dvw bg-gradient-to-b from-50% from-purple-500  to-purple-200 opacity-30"></div> */}
       <div className="absolute top-0 left-0 right-0">
         <Navbar />
-        {/* <CountdownTimer /> */}
 
         <div className="mt-8 mx-4">
           <h2 className="text-3xl mt-8 font-r text-center text-gray-700">
@@ -103,41 +151,63 @@ function MainPage() {
 
           {/* Tab will shown here */}
           <div className="max-w-xl mx-auto">
-            <div className="  grid grid-cols-6 justify-items-stretch mt-8 border-[1px] bg-white border-gray-300 rounded-md text-center">
+            <div className="grid grid-cols-6 justify-items-stretch mt-8 border-[1px] bg-white border-gray-300 rounded-md text-center">
               <div className="col-start-1 col-end-4">
                 <div
-                  className={` py-2 px-4 rounded-md font-r text-lg tracking-wider ${
-                    // props.activeTab === 1
+                  className={`py-2 px-4 rounded-md font-r text-lg tracking-wider ${
                     activeTab === "1"
                       ? "bg-purple-600 text-white"
                       : "bg-white text-[#545454]"
                   }`}
-                  // onClick={() => OnTabChange(1)}
                   onClick={() => setActiveTab("1")}
                 >
-                  {/* {props.firstButton} */}
                   Girls
                 </div>
               </div>
               <div className="col-start-4 col-end-7">
                 <div
-                  className={` py-2 px-4 rounded-md font-r text-lg tracking-wider ${
-                    // props.activeTab === 2
+                  className={`py-2 px-4 rounded-md font-r text-lg tracking-wider ${
                     activeTab === "2"
                       ? "bg-purple-600 text-white"
                       : "bg-white text-[#545454]"
                   }`}
-                  // onClick={() => props.onTabChange(2)}
                   onClick={() => setActiveTab("2")}
                 >
-                  {/* {props.secondButton} */}
                   Boys
                 </div>
               </div>
             </div>
           </div>
 
-          { top10Users.length > 1 && (
+          {/* Error state */}
+          {error && (
+            <div className="mt-8 text-center p-4 bg-red-100 rounded-xl max-w-xl mx-auto">
+              <p className="text-red-600">
+                {error}. Please try again later.
+              </p>
+              <button 
+                className="mt-2 px-4 py-2 bg-purple-600 text-white rounded-md"
+                onClick={() => activeTab === "1" ? fetchTop10FemaleUsers() : fetchTop10MaleUsers()}
+              >
+                Retry
+              </button>
+            </div>
+          )}
+
+          {/* Loading state */}
+          {loading && !error && (
+            <>
+              <TopUserSkeleton />
+              <div className="mt-10 bg-purple-100 rounded-3xl p-6 max-w-xl mx-auto">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <ListItemSkeleton key={i} />
+                ))}
+              </div>
+            </>
+          )}
+
+          {/* Content state */}
+          {!loading && !error && top10Users.length > 1 && (
             <>
               <div className="bg-purple-100 py-6 mt-8 rounded-3xl max-w-xl mx-auto">
                 <div className="border-4 border-purple-500 w-fit aspect-square rounded-[50%] mx-auto">
@@ -145,6 +215,7 @@ function MainPage() {
                     className="w-36 h-36 rounded-[50%]"
                     src={top10Users[0].photo}
                     alt=""
+                    loading="lazy"
                   />
                 </div>
 
@@ -172,11 +243,12 @@ function MainPage() {
                           className="w-20 mt-1 aspect-square object-cover rounded-[50%]"
                           src={user.photo}
                           alt=""
+                          loading="lazy"
                         />
                       </div>
 
                       <div className="w-full">
-                        <h2 className="text-lg font-r text-left text-purple-600 line-clamp-1 ">
+                        <h2 className="text-lg font-r text-left text-purple-600 line-clamp-1">
                           {user.name}{" "}
                           {user.verify && (
                             <span className="relative inline-flex items-center ml-1 top-1 z-0">
@@ -184,7 +256,7 @@ function MainPage() {
                             </span>
                           )}
                         </h2>
-                        <p className="mt-[2px]  text-left font-m text-gray-600">
+                        <p className="mt-[2px] text-left font-m text-gray-600">
                           {user.branch}
                           {getYearText(user.year)}
                         </p>
@@ -198,6 +270,15 @@ function MainPage() {
                 </p>
               </div>
             </>
+          )}
+
+          {/* Empty state */}
+          {!loading && !error && top10Users.length <= 1 && (
+            <div className="mt-8 text-center p-6 bg-purple-100 rounded-xl max-w-xl mx-auto">
+              <p className="text-purple-600 text-lg">
+                No {activeTab === "1" ? "girls" : "boys"} found to display.
+              </p>
+            </div>
           )}
         </div>
         <br />
