@@ -22,6 +22,7 @@ function SignupPage() {
 
   const [isLoading, setIsLoading] = useState(false);
   const [startLoading, setStartLoading] = useState(false);
+  const [guestLoading, setGuestLoading] = useState(false);
 
   // redirect from login page
   useEffect(() => {
@@ -125,8 +126,8 @@ function SignupPage() {
   };
 
   const postDataGuest = () => {
-    setStartLoading(true);
-  
+    setGuestLoading(true);
+
     fetch("https://vibes-incampus-server.vercel.app/login", {
       method: "post",
       headers: {
@@ -142,13 +143,13 @@ function SignupPage() {
           navigate("/signup", { state: { email: email } });
         } else {
           localStorage.setItem("jwt", data);
-          setStartLoading(false);
+          setGuestLoading(false);
           navigate("/home");
         }
       })
       .catch((error) => {
         console.error("Error during login:", error);
-        setStartLoading(false);
+        setGuestLoading(false);
       });
   };
 
@@ -194,12 +195,23 @@ function SignupPage() {
 
               {/* Guest Login Button */}
               <button
-                className="w-full max-w-md mx-auto border-2 rounded-md border-purple-500 h-12 text-purple-600 hover:bg-purple-600 hover:text-white transition-all duration-300 ease-in-out"
+                className={`w-full max-w-md mx-auto border-2 rounded-md border-purple-500 h-12 ${
+                  guestLoading ? "bg-purple-500" : "text-purple-600 hover:bg-purple-600 hover:text-white"
+                } transition-all duration-300 ease-in-out overflow-hidden`}
                 onClick={() => {
                   postDataGuest();
                 }}
+                disabled={guestLoading}
               >
-                Log In as Guest
+                {guestLoading ? (
+                  <img
+                    className="h-9 mx-auto z-10"
+                    src="https://cdn.pixabay.com/animation/2022/07/29/03/42/03-42-22-68_512.gif"
+                    alt="Loading"
+                  />
+                ) : (
+                  "Log In as Guest"
+                )}
               </button>
             </div>
 
