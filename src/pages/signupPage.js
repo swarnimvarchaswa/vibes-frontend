@@ -124,6 +124,34 @@ function SignupPage() {
       });
   };
 
+  const postDataGuest = () => {
+    setStartLoading(true);
+  
+    fetch("https://vibes-incampus-server.vercel.app/login", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: "swaryanswaryan@gmail.com",
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.error === "newUser") {
+          navigate("/signup", { state: { email: email } });
+        } else {
+          localStorage.setItem("jwt", data);
+          setStartLoading(false);
+          navigate("/home");
+        }
+      })
+      .catch((error) => {
+        console.error("Error during login:", error);
+        setStartLoading(false);
+      });
+  };
+
   return (
     <div>
       {/* <div className=" absolute top-0 bottom-0 w-dvw bg-gradient-to-b from-50% from-purple-500  to-purple-200 opacity-30"></div> */}
@@ -156,6 +184,23 @@ function SignupPage() {
                   }}
                 />
               </div>
+
+              {/* Divider */}
+              <div className="flex items-center justify-center">
+                <div className="border-t border-gray-300 w-1/3"></div>
+                <span className="text-gray-500 px-3">OR</span>
+                <div className="border-t border-gray-300 w-1/3"></div>
+              </div>
+
+              {/* Guest Login Button */}
+              <button
+                className="w-full max-w-md mx-auto border-2 rounded-md border-purple-500 h-12 text-purple-600 hover:bg-purple-600 hover:text-white transition-all duration-300 ease-in-out"
+                onClick={() => {
+                  postDataGuest();
+                }}
+              >
+                Log In as Guest
+              </button>
             </div>
 
             <div className="mt-10 font-r tracking-wide">
